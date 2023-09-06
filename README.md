@@ -1,3 +1,10 @@
+# Thank you for checking this out
+This was a project I decided to do during a summer basketball league I joined, which was when i thought it would be awesome to track my stats and see how I progressed during the weeks (whether it was a game or just shooting on my own).
+
+# future goals with this
+I plan on implementing the bard api once it comes to Canada where i can use it to give feedback based on the users data as well as similar nba players that can be related to.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
