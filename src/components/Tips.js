@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 export const Tips = () => {
-  const [generatedText, setGeneratedText] = useState('');
+  const [generatedText, setGeneratedText] = useState('sda');
 
   const generateText = () => {
     const prompt = "Once upon a time, ";
