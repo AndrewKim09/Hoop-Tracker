@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Routes, Navigate} from 'react-router-dom';
+import { HashRouter as Router, Route, Routes, Navigate} from 'react-router-dom';
 import {Create} from './components/Create';
 import {Error404} from './components/Error404';
 import {Details} from './components/Details';
@@ -30,7 +30,7 @@ function App() {
         
             <NavBar/>
 
-            <Router>
+            
               <Routes>
                 <Route path = "/" element = {<Navigate to="/login"></Navigate>}></Route>
                 <Route path="/login" element={<Login/>}/>
@@ -41,7 +41,7 @@ function App() {
                 <Route path = "/tips" element = {user ? <Tips/> : <NoAccess/>}/>
                 <Route path="*" element={<Error404/>}/>
               </Routes>
-            </Router>
+            
       </div>
     </LocalizationProvider>
   );
