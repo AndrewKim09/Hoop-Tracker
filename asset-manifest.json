@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Hoop-Tracker/static/css/main.92b578c8.css",
-    "main.js": "/Hoop-Tracker/static/js/main.e54a197e.js",
+    "main.js": "/Hoop-Tracker/static/js/main.ec97d679.js",
     "static/media/basketball-icon-basketball-isolated-on-white-background-basketball-icon-simple-sign-free-vector.jpg": "/Hoop-Tracker/static/media/basketball-icon-basketball-isolated-on-white-background-basketball-icon-simple-sign-free-vector.eec7202ba939435e236f.jpg",
     "index.html": "/Hoop-Tracker/index.html",
     "main.92b578c8.css.map": "/Hoop-Tracker/static/css/main.92b578c8.css.map",
-    "main.e54a197e.js.map": "/Hoop-Tracker/static/js/main.e54a197e.js.map"
+    "main.ec97d679.js.map": "/Hoop-Tracker/static/js/main.ec97d679.js.map"
   },
   "entrypoints": [
     "static/css/main.92b578c8.css",
-    "static/js/main.e54a197e.js"
+    "static/js/main.ec97d679.js"
   ]
 }
