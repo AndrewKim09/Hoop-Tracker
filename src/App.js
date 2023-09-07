@@ -32,7 +32,7 @@ function App() {
             <NavBar/>
 
               <Routes>
-                <Route path = "/" element = {<Navigate to="/login"></Navigate>}></Route>
+                <Route path = "/"element = {<Navigate to={user? "/progress" : "/login"}></Navigate>}></Route>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/register" element={user ? <Register/>: <NoAccess/>}/>
                 <Route path="/create" element={user ? <Create/> : <NoAccess/>}/>
