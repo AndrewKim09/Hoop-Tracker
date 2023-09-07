@@ -1,13 +1,14 @@
 import {auth} from "./firebase";
 import {useAuthState} from "react-firebase-hooks/auth"
 import { signOut } from 'firebase/auth';
+import { Link } from "react-router-dom";
 
 export const NavBar = () => {
     const [user] = useAuthState(auth);
 
     const signUserOut = async () =>{
       await signOut(auth);
-    }
+    } 
 
   return (
     <div>
@@ -15,9 +16,9 @@ export const NavBar = () => {
         <div className = "nav_bar">
             <p>By Andrew Kim</p>
               <ul style={{ display: 'flex', alignItems: 'flex-end' }}>
-                    {user  && window.location.pathname !== "/login" ? <li><a href = "/progress">Progress</a></li>: <></>}
-                    {user  && window.location.pathname !== "/login" ? <li><a href = "/details">Details</a></li> : <></>}
-                    {user  && window.location.pathname !== "/login" ? <li><a href = "/tips">Tips</a></li> : <></>}
+                    {user  && window.location.pathname !== "/login" ? <li><Link to = "/progress">progress</Link></li>: <></>}
+                    {user  && window.location.pathname !== "/login" ? <li><Link to = "/details">Details</Link></li> : <></>}
+                    {user  && window.location.pathname !== "/login" ? <li><Link to = "tips">Tips</Link></li> : <></>}
                     <li>{user  && window.location.pathname !== "/login"?  <a onClick = {signUserOut} href = "/">Logout</a> : <a href = "/">Login</a>}</li>
                     {window.location.pathname !== "/login" ? <li><p>{user?.displayName}</p></li>: <></>}
                 </ul>
@@ -26,8 +27,7 @@ export const NavBar = () => {
         
         <li>
           <button className="create_button">
-            <a href = "/create">Add
-            </a>
+            <Link to = "/create">Add</Link>
           </button>
           
         </li> 

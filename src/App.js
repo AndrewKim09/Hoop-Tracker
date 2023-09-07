@@ -22,6 +22,7 @@ function App() {
   if (loading) {
 
     return <div>Loading...</div>;
+    
   }
 
   return (
@@ -30,7 +31,6 @@ function App() {
         
             <NavBar/>
 
-            
               <Routes>
                 <Route path = "/" element = {<Navigate to="/login"></Navigate>}></Route>
                 <Route path="/login" element={<Login/>}/>
@@ -41,6 +41,7 @@ function App() {
                 <Route path = "/tips" element = {user ? <Tips/> : <NoAccess/>}/>
                 <Route path="*" element={<Error404/>}/>
               </Routes>
+
             
       </div>
     </LocalizationProvider>
