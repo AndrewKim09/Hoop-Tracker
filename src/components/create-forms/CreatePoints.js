@@ -13,6 +13,9 @@ export const CreatePoints = () => {
   const [type, setType] = useState("none");
   const [user] = useAuthState(auth);
   const [selectedDate, setSelectedDate] = useState(null); // Set initial selectedDate to null
+  const [dateError, setDateError] = useState("");
+
+  
 
   const typeCheck = () => {
     if (type === "twoPointer" || type === "threePointer" || type === "layups") {
@@ -78,10 +81,29 @@ export const CreatePoints = () => {
 
   useState(console.log(typeCheck()), [])
 
+  const onSubmit = async (event, data) => {
+    if(selectedDate === null && selectedDate < (new Date())){
+      if(type) {
+        await pointSubmit(((FormData) => {onCreatePoints(FormData)}))(data)
+      }
+      else{
+        await otherSubmit(((FormData) => {onCreateOthers(FormData)}))(data)
+      }
+    }
+    else{
+      if(selectedDate === null){
+        setDateError("please enter a date")
+      }
+      else{
+        setDateError("you cant know a stat from the future!")
+      }
+    }
+  }
+
 
   return (
     <div className="create_section transition-fade">
-      <form onSubmit={typeCheck() ? pointSubmit(onCreatePoints) : otherSubmit(onCreateOthers)}>
+      <form onSubmit={(data, event) => onSubmit(event, data)}>
         <div className="form-row" onChange={(event) => { setType(event.target.value) }}>
           <label htmlFor="type">Shot Type</label>
           <select id="type" name="type" {...(typeCheck() ? { ...pointRegister("type") } : { ...otherRegister("type") })}>
@@ -132,7 +154,7 @@ export const CreatePoints = () => {
           />
            
         </div>
-        <p className="error-box">{pointErrors.time?.message}</p>
+        <p className="error-box">{dateError}</p>
 
         <div style={{ display: 'flex', justifyContent: 'center' }}><button type="submit" className="submit-button">Submit</button></div>
       </form>
