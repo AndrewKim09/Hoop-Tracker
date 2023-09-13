@@ -82,7 +82,8 @@ export const CreatePoints = () => {
   useState(console.log(typeCheck()), [])
 
   const onSubmit = async (event, data) => {
-    if(selectedDate === null && selectedDate < (new Date())){
+    event.preventDefault();
+    if(selectedDate !== null && selectedDate < (new Date())){
       if(type) {
         await pointSubmit(((FormData) => {onCreatePoints(FormData)}))(data)
       }
@@ -103,7 +104,7 @@ export const CreatePoints = () => {
 
   return (
     <div className="create_section transition-fade">
-      <form onSubmit={(data, event) => onSubmit(event, data)}>
+      <form onSubmit={(event, data) => {onSubmit(event, data)}}>
         <div className="form-row" onChange={(event) => { setType(event.target.value) }}>
           <label htmlFor="type">Shot Type</label>
           <select id="type" name="type" {...(typeCheck() ? { ...pointRegister("type") } : { ...otherRegister("type") })}>
